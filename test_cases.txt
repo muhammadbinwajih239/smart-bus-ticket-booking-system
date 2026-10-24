@@ -1,0 +1,57 @@
+SMART BUS TICKET BOOKING AND RESERVATION SYSTEM
+TEST CASES
+
+Instructions:
+1. Run main.py and test each scenario.
+2. Check both the displayed message and the resulting state, such as available seats or booking status.
+3. Fill in ACTUAL RESULT after running the program.
+4. Replace NOT RUN with PASS or FAIL only after verifying the result.
+5. Use a fresh program run when a test requires no previous bookings or full initial seat availability.
+
+TC-01: View all routes
+Input / Action: Choose menu option 1.
+Expected Result: All five routes are displayed with route ID, journey, departure time, fare, seat availability, and status.
+
+TC-02: Search for Hyderabad
+Input / Action: Choose option 2 and enter Hyderabad.
+Expected Result: Routes R101, R103, and R105 are displayed because Hyderabad is a departure or destination city for those routes.
+
+TC-03: Search for an unknown city
+Input / Action: Choose option 2 and enter Atlantis.
+Expected Result: A no-matching-routes message appears, and the program continues without crashing.
+
+TC-04: Book two seats successfully
+Input / Action: Choose option 3. Enter passenger name Ahmed, age 24, route ID R101, and 2 seats in a fresh run.
+Expected Result: Booking is confirmed. In a fresh run, the first booking ID should be B1001. Total fare is Rs. 2400, and R101 availability decreases from 40 to 38.
+
+TC-05: Attempt to book zero seats
+Input / Action: Attempt a booking using a valid name, age, and route, but enter 0 for the seat quantity.
+Expected Result: The booking is rejected. No confirmed booking is created and seat availability does not change.
+
+TC-06: Request more seats than available
+Input / Action: In a fresh run, select R101 and request 41 seats when 40 are available.
+Expected Result: The booking is rejected and R101 availability remains 40. Availability must not become negative.
+
+TC-07: Cancel a confirmed booking
+Input / Action: Create a valid booking, then choose option 5 and enter that booking ID.
+Expected Result: The booking status becomes Cancelled and the exact number of seats from that booking is restored to its route.
+
+TC-08: Attempt to cancel the same booking again
+Input / Action: After TC-07, choose option 5 and enter the same booking ID again.
+Expected Result: The second cancellation is rejected. No additional seats are restored, and the booking remains in history as Cancelled.
+
+TC-09: Generate a report with no bookings
+Input / Action: Start a fresh program run without making any bookings, then choose option 7.
+Expected Result: Total, confirmed, and cancelled bookings are zero; reserved seats and confirmed revenue are zero. Fully booked routes are counted from route availability.
+
+TC-10: Book all seats on a route
+Input / Action: In a fresh run, book exactly 40 seats on R101 using valid passenger details.
+Expected Result: Booking succeeds, R101 availability becomes 0, and its status becomes Fully Booked.
+
+TC-11: Report after cancellation
+Input / Action: Make a valid booking, cancel it, then choose option 7.
+Expected Result: Total bookings includes the cancelled record; confirmed and cancelled counts reflect its status; its seats and fare are excluded from currently reserved seats and confirmed revenue.
+
+TC-12: Enter an invalid menu choice
+Input / Action: At the main menu, enter unsupported text such as abc or an unsupported number such as 99.
+Expected Result: A helpful invalid-choice message appears, the program does not crash, and the menu appears again.
