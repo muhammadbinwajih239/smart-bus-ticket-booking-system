@@ -37,8 +37,6 @@ Smart_Bus_Project/
     └── 04_booking_report.png
 ```
 
-Create the `screenshots` folder and add the four screenshots after testing. The image filenames above are suggested names.
-
 ## 5. How to Run
 
 1. Place `main.py`, `README.md`, and `test_cases.txt` in the same project folder.
